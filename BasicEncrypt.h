@@ -1,5 +1,4 @@
 #pragma once
-
 #include <string>
 
 class BasicEncrypt
@@ -8,11 +7,11 @@ class BasicEncrypt
 
     BasicEncrypt(std::string _plain = "Default");
 
-    std::string encode(std::string plain);
-    std::string decode(std::string cypher);
+    std::string encode();
+    std::string decode();
 
-    void plain() const;
-    void cypher() const;
+    std::string getPlain() const;
+    std::string getCypher() const;
 
     protected:
 
@@ -20,5 +19,3 @@ class BasicEncrypt
     std::string _cypher; 
 };
 
-void read();
-void write();

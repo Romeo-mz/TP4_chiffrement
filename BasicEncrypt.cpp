@@ -6,23 +6,23 @@ BasicEncrypt::BasicEncrypt(std::string plain):_plain(plain)
 {
     _cypher = "Default";
 }
-//Assigne la valeur de plainà la variable membre cypher
-std::string BasicEncrypt::encode(std::string plain)
+//Assigne la valeur de plain à la variable membre cypher
+std::string BasicEncrypt::encode()
 {
-    _cypher = plain;
+    _cypher = _plain;
 }
 //Assigne la valeur de cypher à la variable membre plain
-std::string BasicEncrypt::decode(std::string cypher)
+std::string BasicEncrypt::decode()
 {
-    _plain = cypher;
+    _plain = _cypher;
 }
 //Affiche _plain
-void BasicEncrypt::plain() const
+ std::string BasicEncrypt::getPlain() const
 {
-    std::cout << _plain;
+    return _plain;
 }
 //Affiche _cypher
-void BasicEncrypt::cypher() const
+ std::string BasicEncrypt::getCypher() const
 {
-    std::cout << _cypher;
+    return _cypher;
 }

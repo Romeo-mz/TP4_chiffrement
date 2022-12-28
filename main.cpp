@@ -1,15 +1,20 @@
 #include <iostream>
 #include "BasicEncrypt.h"
+#include "Encrypt.h"
+
 
 int main()
 {
-    BasicEncrypt test("Guette");
+    BasicEncrypt test("test");
+    test.encode();
 
-    test.encode("encode");
-    test.decode("decode");
 
-    test.cypher();
-    test.plain();
+    Encrypt carre("test");
+    carre.encode();
+    carre.decode();
+    std::cout << carre.getPlain() << carre.getCypher() <<  std::endl;
+    write("test.txt", carre);
 
+    read("test.txt");
     return 0;
 }
