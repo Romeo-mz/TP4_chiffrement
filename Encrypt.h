@@ -13,6 +13,9 @@ class Encrypt
     std::string getCypher() const;
     std::string getPlain() const;
 
+    void setPlain(std::string plain);
+    void setCypher(std::string cypher);
+
     protected:
 
     std::string _cypher;

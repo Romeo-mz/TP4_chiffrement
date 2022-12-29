@@ -27,6 +27,15 @@ void Encrypt::encode()
     _cypher = _plain;
 }
 
+void Encrypt::setCypher(std::string cypher)
+{
+    _cypher = cypher;
+}
+
+void Encrypt::setPlain(std::string plain)
+{
+    _plain = plain;
+}
 void read(std::string name_F) 
 {
     std::ifstream file;
