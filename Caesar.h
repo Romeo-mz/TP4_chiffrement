@@ -6,9 +6,13 @@ class Caesar : public Encrypt
 {
     public:
 
-    Caesar();
+    Caesar(int decal);
 
     void encode() override;
     void decode() override;
+
+    protected:
+
+    int _decal;
 
 };

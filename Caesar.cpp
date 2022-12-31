@@ -2,7 +2,7 @@
 #include <string>
 #include "Caesar.h"
 
-Caesar::Caesar()
+Caesar::Caesar(int decal):_decal(decal)
 {
     _plain = "";
     _cypher = "";
@@ -14,19 +14,19 @@ void Caesar::encode()
     alphabet[0] ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    int decal = 3;
+    //Définit le nouvel alphabet en fonction du decalage
 
     for(int i = 0; i < alphabet[0].size(); i++)
     {
-        if(decal == alphabet[1].size())
+        if(_decal == alphabet[1].size())
         {
-            decal = 0;
+            _decal = 0;
         }
-        alphabet[1][i] = alphabet[0][decal];
-        decal++;
+        alphabet[1][i] = alphabet[0][_decal];
+        _decal++;
     }
 
-
+    //Definit _cypher avec l'alphabet décalé
     for(int i = 0; i < _plain.size(); i++)
     {
         for(int j = 0; j < alphabet[0].size(); j++)
@@ -46,20 +46,18 @@ void Caesar::decode()
     alphabet[0] ="ZYXWVUTSRQPONMLKJIHGFEDCBA";
     alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    int decal = 3;
-
+    //Définit le nouvel alphabet en fonction du decalage
     for(int i = 0; i < alphabet[0].size(); i++)
     {
-        if(decal == alphabet[1].size())
+        if(_decal == alphabet[1].size())
         {
-            decal = 0;
+           _decal = 0;
         }
   
-        alphabet[1][i] = alphabet[0][decal];
-        decal++;
+        alphabet[1][i] = alphabet[0][_decal];
+        _decal++;
     }
-
-
+    //Definit _plain avec l'alphabet décalé
     for(int i = 0; i < _cypher.size(); i++)
     {
         for(int j = 0; j < alphabet[0].size(); j++)

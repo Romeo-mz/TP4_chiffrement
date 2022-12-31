@@ -3,9 +3,10 @@
 #include <fstream>
 #include "Encrypt.h"
 
-Encrypt::Encrypt(std::string plain):_plain(plain)
+Encrypt::Encrypt()
 {
     _cypher = "Default";
+    _plain = "Default";
 }
 
 std::string Encrypt::getCypher() const
@@ -36,7 +37,7 @@ void Encrypt::setPlain(std::string plain)
 {
     _plain = plain;
 }
-void read(std::string name_F) 
+std::string read(std::string name_F) 
 {
     std::ifstream file;
     file.open(name_F);
@@ -51,13 +52,14 @@ void read(std::string name_F)
     while(std::getline(file, line))
     {
         std::cout << line << std::endl;
+        
     }
-
+    return(line);
     file.close();
 
 }
 
-void write(std::string name_F, Encrypt const& encrypt ) 
+std::string write(std::string name_F, Encrypt const& encrypt ) 
 {
     std::ofstream file(name_F);
     if(!file)

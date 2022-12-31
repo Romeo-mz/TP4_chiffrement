@@ -5,7 +5,7 @@ class Encrypt
 {
     public:
 
-    Encrypt(std::string plain = "Default");
+    Encrypt();
 
     virtual void encode();
     virtual void decode();
@@ -22,5 +22,5 @@ class Encrypt
     std::string _plain;
 };
 
-void read(std::string nom_F);
-void write(std::string nom_F, Encrypt const& encrypt);
+std::string read(std::string nom_F);
+std::string write(std::string nom_F, Encrypt const& encrypt);

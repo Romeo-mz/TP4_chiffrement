@@ -9,21 +9,22 @@ int main()
     test.encode();
 
 
-    Encrypt carre("test");
+    Encrypt carre;
+    carre.setPlain("test");
     carre.encode();
     carre.decode();
     std::cout << carre.getPlain()  <<  std::endl;
-    write("test.txt", carre);
+    //write("test.txt", carre);
 
     read("test.txt");
 
-    Caesar rom;
+    //definition de l'objet de la classe Caesar avec un décalage de 3
+    Caesar caesar(3);
 
-    rom.setCypher("URPHR");
-    rom.decode();
-
-    //std::cout << rom.getCypher() << std::endl;
-    std::cout << rom.getPlain() << std::endl;
-
+    caesar.setPlain(read("test.txt"));
+    caesar.encode();
+    write(caesar.getPlain(), caesar);
+   // std::cout << caesar.getPlain() << std::endl;
+    std::cout << caesar.getCypher() << std::endl;
     return 0;
 }
