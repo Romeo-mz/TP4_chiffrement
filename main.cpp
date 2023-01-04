@@ -2,6 +2,7 @@
 #include "BasicEncrypt.h"
 #include "Encrypt.h"
 #include "Caesar.h"
+#include "Caesar2.h"
 
 int main()
 {
@@ -12,6 +13,14 @@ int main()
     rom.decode();
 
     std::cout << rom.getMessage() << std::endl;
+
+    Caesar2 rom2("Les sanglots longs Des violons De l'automne Blessent mon coeur D'une langueur Monotone.", 3);
+    std::cout << rom2.getMessage() << std::endl;
+    rom2.encode();
+    std::cout << rom2.getMessage() << std::endl;
+    rom2.decode();
+
+    std::cout << rom2.getMessage() << std::endl;
 
     return 0;
 }
