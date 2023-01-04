@@ -62,6 +62,29 @@ void read(std::string name_F)
 
 }
 
+std::string store(std::string name_F) 
+{
+    std::ifstream file;
+    file.open(name_F);
+    std::string sentences;
+
+    if(!file)
+    {
+        std::cout << "Error opening file";
+    }
+
+    std::string line;
+
+    while(std::getline(file, line))
+    {
+        sentences += "\n" + line;
+    }
+
+    file.close();
+    return sentences;
+
+}
+
 void write(std::string name_F, Encrypt const& encrypt ) 
 {
     std::ofstream file(name_F);

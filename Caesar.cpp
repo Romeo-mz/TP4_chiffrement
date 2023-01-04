@@ -15,8 +15,6 @@ void Caesar::encode()
     alphabet[0] ="abcdefghijklmnopqrstuvwxyz";
     alphabet[1] = "abcdefghijklmnopqrstuvwxyz";
 
-    //int decal = 3;
-
     for(int i = 0; i < alphabet[0].size(); i++)
     {
         if(_decalage == alphabet[1].size())
@@ -47,8 +45,6 @@ void Caesar::decode()
     std::string alphabet[2];
     alphabet[0] ="zyxwvutsrqponmlkjihgfedcba";
     alphabet[1] = "abcdefghijklmnopqrstuvwxyz";
-
-    //int decal = 3;
 
     for(int i = 0; i < alphabet[0].size(); i++)
     {

@@ -26,4 +26,5 @@ class Encrypt
 };
 
 void read(std::string nom_F);
+std::string store(std::string nom_F);
 void write(std::string nom_F, Encrypt const& encrypt);

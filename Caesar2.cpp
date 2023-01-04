@@ -15,8 +15,6 @@ void Caesar2::encode()
     alphabet[0] =" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
     alphabet[1] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 
-    //int decal = 3;
-
     for(int i = 0; i < alphabet[0].size(); i++)
     {
         if(_decalage == alphabet[1].size())
@@ -47,8 +45,6 @@ void Caesar2::decode()
     std::string alphabet[2];
     alphabet[0] ="~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! ";
     alphabet[1] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
-
-    //int decal = 3;
 
     for(int i = 0; i < alphabet[0].size(); i++)
     {
