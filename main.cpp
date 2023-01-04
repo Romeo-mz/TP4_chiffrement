@@ -3,6 +3,7 @@
 #include "Encrypt.h"
 #include "Caesar.h"
 #include "Caesar2.h"
+#include "Vigenere.h"
 
 int main()
 {
@@ -20,6 +21,14 @@ int main()
     std::cout << rom2.getMessage() << std::endl;
     rom2.decode();
     std::cout << rom2.getMessage() << std::endl;
+
+    Vigenere vig({5,1,3,2});
+    vig.setPlain("BONJOURS");
+    vig.encode();
+    std::cout << vig.getCypher() << "\n";
+    vig.decode();
+    std::cout << vig.getPlain() << "\n";
+
 
     return 0;
 }
