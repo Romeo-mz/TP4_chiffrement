@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 #include "Encrypt.h"
 
 Encrypt::Encrypt(std::string plain):_plain(plain)
@@ -17,6 +18,10 @@ std::string Encrypt::getPlain() const
     return _plain;
 }
 
+std::string Encrypt::getMessage() const
+{
+    return _message;
+}
 void Encrypt::decode() 
 {
     _plain = _cypher;

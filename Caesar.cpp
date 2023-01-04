@@ -2,28 +2,29 @@
 #include <string>
 #include "Caesar.h"
 
-Caesar::Caesar()
+Caesar::Caesar(std::string message, int decalage) : _decalage(decalage)
 {
-    _plain = "";
+    _message = message;
+    _plain = _message;
     _cypher = "";
 }
 //Utilise deux Alphabets pour naviguer de l'un à l'autre en fonction du décalage et initialiser le nouveau _plain
-void Caesar::encode() 
+void Caesar::encode()
 {
     std::string alphabet[2];
-    alphabet[0] ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    alphabet[0] ="abcdefghijklmnopqrstuvwxyz";
+    alphabet[1] = "abcdefghijklmnopqrstuvwxyz";
 
-    int decal = 3;
+    //int decal = 3;
 
     for(int i = 0; i < alphabet[0].size(); i++)
     {
-        if(decal == alphabet[1].size())
+        if(_decalage == alphabet[1].size())
         {
-            decal = 0;
+            _decalage = 0;
         }
-        alphabet[1][i] = alphabet[0][decal];
-        decal++;
+        alphabet[1][i] = alphabet[0][_decalage];
+        _decalage++;
     }
 
 
@@ -37,26 +38,27 @@ void Caesar::encode()
             }
         }
     }
-
+    _message = _cypher;
 }
 //Utilise le même principe que encode mais avec l'alphabet 0 à l'envers
 void Caesar::decode() 
 {
+    _message = "";
     std::string alphabet[2];
-    alphabet[0] ="ZYXWVUTSRQPONMLKJIHGFEDCBA";
-    alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    alphabet[0] ="zyxwvutsrqponmlkjihgfedcba";
+    alphabet[1] = "abcdefghijklmnopqrstuvwxyz";
 
-    int decal = 3;
+    //int decal = 3;
 
     for(int i = 0; i < alphabet[0].size(); i++)
     {
-        if(decal == alphabet[1].size())
+        if(_decalage == alphabet[1].size())
         {
-            decal = 0;
+            _decalage = 0;
         }
   
-        alphabet[1][i] = alphabet[0][decal];
-        decal++;
+        alphabet[1][i] = alphabet[0][_decalage];
+        _decalage++;
     }
 
 
@@ -66,9 +68,8 @@ void Caesar::decode()
         {
             if(_cypher[i] == alphabet[0][j])
             {
-                _plain += alphabet[1][j];
+                _message += alphabet[1][j];
             }
         }
     }
-
 }

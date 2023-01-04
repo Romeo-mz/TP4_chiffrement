@@ -7,12 +7,12 @@ BasicEncrypt::BasicEncrypt(std::string plain):_plain(plain)
     _cypher = "Default";
 }
 //Assigne la valeur de plain à la variable membre cypher
-std::string BasicEncrypt::encode()
+void BasicEncrypt::encode()
 {
     _cypher = _plain;
 }
 //Assigne la valeur de cypher à la variable membre plain
-std::string BasicEncrypt::decode()
+void BasicEncrypt::decode()
 {
     _plain = _cypher;
 }

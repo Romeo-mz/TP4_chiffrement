@@ -6,9 +6,12 @@ class Caesar : public Encrypt
 {
     public:
 
-    Caesar();
+    Caesar(std::string message, int decalage);
 
     void encode() override;
     void decode() override;
+
+    protected:
+    int _decalage;
 
 };

@@ -5,25 +5,13 @@
 
 int main()
 {
-    BasicEncrypt test("test");
-    test.encode();
-
-
-    Encrypt carre("test");
-    carre.encode();
-    carre.decode();
-    std::cout << carre.getPlain()  <<  std::endl;
-    write("test.txt", carre);
-
-    read("test.txt");
-
-    Caesar rom;
-
-    rom.setCypher("URPHR");
+    Caesar rom("aubin", 26);
+    std::cout << rom.getMessage() << std::endl;
+    rom.encode();
+    std::cout << rom.getMessage() << std::endl;
     rom.decode();
 
-    //std::cout << rom.getCypher() << std::endl;
-    std::cout << rom.getPlain() << std::endl;
+    std::cout << rom.getMessage() << std::endl;
 
     return 0;
 }

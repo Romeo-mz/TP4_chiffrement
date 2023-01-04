@@ -7,8 +7,8 @@ class BasicEncrypt
 
     BasicEncrypt(std::string _plain = "Default");
 
-    std::string encode();
-    std::string decode();
+    void encode();
+    void decode();
 
     std::string getPlain() const;
     std::string getCypher() const;
