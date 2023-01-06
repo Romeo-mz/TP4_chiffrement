@@ -20,11 +20,11 @@ int main()
 
     //definition de l'objet de la classe Caesar avec un décalage de 3
     Caesar caesar(3);
-
     caesar.setPlain(read("test.txt"));
     caesar.encode();
-    write(caesar.getPlain(), caesar);
+
    // std::cout << caesar.getPlain() << std::endl;
     std::cout << caesar.getCypher() << std::endl;
+    
     return 0;
 }
