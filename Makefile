@@ -10,7 +10,7 @@ LDFLAGS    =
 SRCS       = main.cpp BasicEncrypt.cpp Encrypt.cpp Caesar.cpp Caesar2.cpp Vigenere.cpp
 OBJS       = $(SRCS:.cpp=.o)
 # Replace your_app with the name you want to give to your executable file
-TARGET     = Chiffrement
+TARGET     = app
 DEPS	   = $(OBJS:.o=.d)
 
 all: $(TARGET)

@@ -6,7 +6,10 @@ class Vigenere : public Encrypt
 {
     public:
     
-    Vigenere(int key[4]);
+    Vigenere(std::string message, std::vector<int> _key);
+    Vigenere(std::string message, std::string key);
+
+    std::vector<int> key() const;
     
     void encode() override;
     void decode() override;
@@ -16,5 +19,5 @@ class Vigenere : public Encrypt
     
     protected:
     
-    int _key[4];
+    std::vector<int> _key;
 };

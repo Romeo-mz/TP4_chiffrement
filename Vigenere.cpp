@@ -1,78 +1,74 @@
 #include "Vigenere.h"
+#include "Encrypt.h"
 #include <iostream>
 #include <string>
 
-Vigenere::Vigenere(int key[4])
+Vigenere::Vigenere(std::string message, std::vector<int> key):_key(key) 
 {
-    for (int i = 0; i < 4; i++){
-        _key[i] = key[i];
-    }
+    _plain = message;
+}
+
+Vigenere::Vigenere(std::string message, std::string key)
+{
+    _plain = message;
+    _key = {};
+	for (int i = 0; i < key.size(); ++i) 
+    {
+		_key.push_back(int(key[i]));
+	}
 }
 
 
 void Vigenere::getKey()
 {
-    std::cout << _key << std::endl;
+    for (int i = 0; i < _key.size(); ++i) 
+    {
+		std::cout << _key[i] << std::endl;
+	}
 }
 
 void Vigenere::encode()
 {
-    std::string alphabet[2];
-    alphabet[0] ="ZYXWVUTSRQPONMLKJIHGFEDCBA";
-    alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string txt = "";
+    int nomb;
+    int nomb_code;
+    char letter_code;
 
-    for(int i = 0; i < alphabet[0].size(); i++)
-    {
-        if(_key[i] == alphabet[1].size())
-        {
-            _key[i] = 0;
-        }
-  
-        alphabet[1][i] = alphabet[0][_key[i]];
-        _key[i]++;
+    int lenght_key = _key.size();
+    int i = 0;
+
+    for(char letter : _plain)
+    {   
+        nomb = int(letter) - 65;
+        nomb_code = (nomb + _key[i]) % 26 ;
+
+        letter_code = char(nomb_code + 65);
+        i = (i + 1) % lenght_key;
+
+        txt +=letter_code;
     }
-
-
-    for(int i = 0; i < _cypher.size(); i++)
-    {
-        for(int j = 0; j < alphabet[0].size(); j++)
-        {
-            if(_cypher[i] == alphabet[0][j])
-            {
-                _plain += alphabet[1][j];
-            }
-        }
-    }
-
+    _cypher = txt;
 }
 
 void Vigenere::decode()
 {
-    std::string alphabet[2];
-    alphabet[0] ="ZYXWVUTSRQPONMLKJIHGFEDCBA";
-    alphabet[1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string txt = "";
+    int nomb;
+    int nomb_code;
+    char letter_code;
 
-    for(int i = 0; i < alphabet[0].size(); i++)
-    {
-        if(_key[i] == alphabet[1].size())
-        {
-            _key[i] = 0;
-        }
-  
-        alphabet[1][i] = alphabet[0][_key[i]];
-        _key[i]++;
+    int lenght_key = _key.size();
+    int i = 0;
+
+    for(char letter : _cypher)
+    {   
+        nomb = int(letter) - 65;
+        nomb_code = (nomb - _key[i]) % 26 ;
+
+        letter_code = char(nomb_code + 65);
+        i = (i + 1) % lenght_key;
+
+        txt +=letter_code;
     }
-
-
-    for(int i = 0; i < _cypher.size(); i++)
-    {
-        for(int j = 0; j < alphabet[0].size(); j++)
-        {
-            if(_cypher[i] == alphabet[0][j])
-            {
-                _plain += alphabet[1][j];
-            }
-        }
-    }
-
+    _cypher = txt;
 }
