@@ -9,12 +9,8 @@ class Vigenere : public Encrypt
     Vigenere(std::string message, std::vector<int> _key);
     Vigenere(std::string message, std::string key);
 
-    std::vector<int> key() const;
-    
     void encode() override;
     void decode() override;
-    
-
     void getKey();
     
     protected:
