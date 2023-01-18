@@ -3,11 +3,13 @@
 #include <iostream>
 #include <string>
 
+// Constructeur de la Classe Vigenere prenant un vecteur comme clé
 Vigenere::Vigenere(std::string message, std::vector<int> key):_key(key) 
 {
     _plain = message;
 }
 
+// Constructeur de la Classe Vigenere prenant une chaîne de caractères comme clé
 Vigenere::Vigenere(std::string message, std::string key)
 {
     _plain = message;
@@ -18,7 +20,7 @@ Vigenere::Vigenere(std::string message, std::string key)
 	}
 }
 
-
+// Getter permettant de récupérer la clé utilisée 
 void Vigenere::getKey()
 {
     for (int i = 0; i < _key.size(); ++i) 
@@ -27,6 +29,7 @@ void Vigenere::getKey()
 	}
 }
 
+// Fonction permettant de crypter le message
 void Vigenere::encode()
 {
     std::string txt = "";
@@ -50,6 +53,7 @@ void Vigenere::encode()
     _cypher = txt;
 }
 
+// Fonction permettant de décrypter le message
 void Vigenere::decode()
 {
     std::string txt = "";
