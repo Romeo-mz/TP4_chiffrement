@@ -7,6 +7,27 @@
 
 int main()
 {
+    //test de la classe BasicEncrypt
+    BasicEncrypt basic("Basique");
+    basic.encode();
+    std::cout << "------------ Basic Encrypt ------------" << std::endl;
+    std::cout << "Plain message : " << basic.getPlain() << std::endl;
+    std::cout << "Encode message : " << basic.getCypher() << std::endl;
+
+    //test de la classe Encrypt
+
+    Encrypt simple("Simple");
+    simple.encode();
+    std::cout << "\n------------ Encrypt ------------" << std::endl;
+    std::cout << "Plain message : " << simple.getPlain() << std::endl;
+    std::cout << "Encode message : " << simple.getCypher() << std::endl;
+
+    //test des fonctions interagissant avec des fichiers
+    write("store.txt", simple);
+    read("store.txt");
+
+    //test de la classe Caesar2
+    std::cout << "\n------------ Caesar 2 ------------" << std::endl;
     std::string message = store("sentences.txt");
     Caesar2 caesar(message, 3);
     std::cout << caesar.getMessage() << std::endl;
@@ -22,7 +43,7 @@ int main()
     caesar2.decode();
     std::cout << caesar2.getMessage() << std::endl;
 
-    std::cout << "------------ Vigenere by vector key ------------" << std::endl;
+    std::cout << "\n------------ Vigenere by vector key ------------" << std::endl;
 
     //test de la classe Vigenere avec un vector en cléf
     std::vector<int> key{1,2,3,4};
@@ -42,7 +63,7 @@ int main()
     std::cout << vig.getPlain() << std::endl;
     
 
-    std::cout << "------------ Vigenere by text key ------------" << std::endl;
+    std::cout << "\n------------ Vigenere by text key ------------" << std::endl;
     //test de la classe Vigenere avec un texte en cléf
     Vigenere vig_t("Test du codage Vigenere", "Key encode");
 
@@ -56,7 +77,7 @@ int main()
     vig_t.decode();
     std::cout << "Decode message " << vig_t.getPlain() << std::endl;
 
-    std::cout << "------------ Vigenere by text key and message in file ------------" << std::endl;
+    std::cout << "\n------------ Vigenere by text key and message in file ------------" << std::endl;
 
     //test de la classe Vigenere avec un texte en cléf et message dans fichier
     Vigenere vig_mess(message, "Key encode");
@@ -74,6 +95,6 @@ int main()
     //ecriture dans ficher
     write("test.txt", vig_mess);
 
-    std::cout << "--------------------------------------------------------------" << std::endl;
+    std::cout << "\n--------------------------------------------------------------" << std::endl;
     return 0;
 }
